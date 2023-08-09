@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.card {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cardTop::after {
+  content: '';
+  position: absolute;
+  height: 35px;
+  width: 0.8px;
+  left: calc(50% - 0.5px);
+  top: -35px;
+  z-index: 100;
+  background-color: black;
+}
+
+.cardBottom::before {
+  content: '';
+  position: absolute;
+  height: 36px;
+  width: 0.8px;
+  left: calc(50% - 0.5px);
+  bottom: -36px;
+  z-index: 100;
+  background-color: black;
+}
+
+.cardsWrapper {
+  display: flex;
+  position: relative;
+}
+
+.connector {
+  position: absolute;
+  height: 1px;
+  top: -35px;
+  left: 69.5px;
+  z-index: 100;
+  background-color: black;
+}
