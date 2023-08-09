@@ -29,7 +29,7 @@ button {
   height: 35px;
   width: 0.8px;
   left: calc(50% - 0.5px);
-  top: -35px;
+  top: -36px;
   z-index: 100;
   background-color: black;
 }

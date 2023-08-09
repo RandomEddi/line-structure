@@ -1,50 +1,16 @@
-export interface ICard {
-  id: number
-  children: ICard[]
-}
+import { generateId } from './utils'
+import { CardInterface } from './types'
 
-const generateIdInstance = () => {
-  let id = 1
+export const CARDS_GAP = 100
+export const CARD_SIZE = 140
 
-  return () => {
-    return id++
-  }
-}
-
-const generateId = generateIdInstance()
-
-export const DUMMY_CARDS: ICard[] = [
+export const DUMMY_CARDS: CardInterface[] = [
   {
     id: generateId(),
     children: [
       {
         id: generateId(),
-        children: [],
-      },
-      {
-        id: generateId(),
-        children: [],
-      },
-      {
-        id: generateId(),
         children: [
-          {
-            id: generateId(),
-            children: [],
-          },
-        ],
-      },
-      {
-        id: generateId(),
-        children: [
-          {
-            id: generateId(),
-            children: [],
-          },
-          {
-            id: generateId(),
-            children: [],
-          },
           {
             id: generateId(),
             children: [
@@ -62,11 +28,11 @@ export const DUMMY_CARDS: ICard[] = [
             id: generateId(),
             children: [],
           },
+          {
+            id: generateId(),
+            children: [],
+          },
         ],
-      },
-      {
-        id: generateId(),
-        children: [],
       },
     ],
   },
