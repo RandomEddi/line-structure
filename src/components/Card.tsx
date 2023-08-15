@@ -6,10 +6,10 @@ import { Cards } from '.'
 interface Props {
   card: CardInterface
   isFirst: boolean
-  connectorWidth?: number
+  handleAddCard: (idToPut: number) => void
 }
 
-export const Card: FC<Props> = ({ card, isFirst }) => {
+export const Card: FC<Props> = ({ card, isFirst, handleAddCard }) => {
   const cardHasChildren = card.children.length > 0
 
   const cardConnectorWidth =
@@ -27,6 +27,7 @@ export const Card: FC<Props> = ({ card, isFirst }) => {
       }}
     >
       <div
+        onClick={() => handleAddCard(card.id)}
         style={{
           width: CARD_SIZE,
           height: CARD_SIZE,
@@ -40,6 +41,7 @@ export const Card: FC<Props> = ({ card, isFirst }) => {
       <div style={{ position: 'relative' }}>
         {cardHasChildren && (
           <Cards
+            handleAddCard={handleAddCard}
             connectorWidth={cardConnectorWidth}
             isFirst={false}
             cards={card.children}

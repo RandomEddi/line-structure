@@ -7,9 +7,15 @@ interface Props {
   cards: CardInterface[]
   isFirst: boolean
   connectorWidth?: number
+  handleAddCard: (idToPut: number) => void
 }
 
-export const Cards: FC<Props> = ({ cards, isFirst, connectorWidth }) => {
+export const Cards: FC<Props> = ({
+  cards,
+  isFirst,
+  connectorWidth,
+  handleAddCard,
+}) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [wrapperWidth, setWrapperWidth] = useState(0)
 
@@ -31,7 +37,7 @@ export const Cards: FC<Props> = ({ cards, isFirst, connectorWidth }) => {
         style={{
           width:
             !isFirst && cards.length > 1
-              ? wrapperWidth !== connectorWidth
+              ? wrapperRef.current?.clientWidth !== connectorWidth
                 ? wrapperWidth - CARD_SIZE
                 : connectorWidth
               : 0,
@@ -39,7 +45,7 @@ export const Cards: FC<Props> = ({ cards, isFirst, connectorWidth }) => {
       ></div>
       {cards.map((card) => (
         <Card
-          connectorWidth={connectorWidth}
+          handleAddCard={handleAddCard}
           isFirst={isFirst}
           card={card}
           key={card.id}

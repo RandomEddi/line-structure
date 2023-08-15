@@ -7,33 +7,6 @@ export const CARD_SIZE = 140
 export const DUMMY_CARDS: CardInterface[] = [
   {
     id: generateId(),
-    children: [
-      {
-        id: generateId(),
-        children: [
-          {
-            id: generateId(),
-            children: [
-              {
-                id: generateId(),
-                children: [],
-              },
-            ],
-          },
-          {
-            id: generateId(),
-            children: [],
-          },
-          {
-            id: generateId(),
-            children: [],
-          },
-          {
-            id: generateId(),
-            children: [],
-          },
-        ],
-      },
-    ],
+    children: [],
   },
 ]
